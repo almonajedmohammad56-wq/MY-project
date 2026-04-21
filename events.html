@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="دليل شامل لفعاليات الجامعة الافتراضية">
+  <title>دليل فعاليات الجامعة</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- ملف التنسيقات -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+  <header>
+    <!-- شريط تنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2 shadow-sm">
+      <button id="darkModeToggle" class="btn ms-2" style="font-size: 1.5rem; border: none; background: transparent;">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <div class="container py-1">
+        <!-- ترتيب افقي  -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="assets/images/logo.png" alt="logo">
+          <span class="site-title">دليل فعاليات جامعة الافتراضية</span>
+        </a>
+
+        <!-- زر التحكم في الشريط -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <!-- العناصر وضعها ع يمين -->
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 mb-2 mb-lg-0">
+            <li class="nav-item"><a href="index.html" class="nav-link px-lg-3">الرئيسية</a></li>
+            <li class="nav-item"><a href="events.html" class="nav-link active px-lg-3">كل الفعاليات</a></li>
+            <li class="nav-item"><a href="event.html" class="nav-link px-lg-3">تفاصيل الفعالية</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link px-lg-3">عن الدليل</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link px-lg-3">اتصل بنا</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container py-4 px-3 px-lg-4">
+
+
+    <!-- شريط الفلترة -->
+
+    <section class="filter mb-5">
+      <div class="container py-1">
+        <div class="row g-3 align-items-end">
+
+          <div class="col-md-3">
+            <input type="text" id="search-events" class="form-control" placeholder="ابحث عن فعالية...">
+          </div>
+
+          <div class="col-md-3">
+            <select id="filter-category" class="form-select">
+              <option value="">اختر التصنيف</option>
+              <option value="program">برمجي</option>
+              <option value="sport">رياضي</option>
+              <option value="kids">للاطفال</option>
+              <option value="culture">ثقافي</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <select id="filter-location" class="form-select">
+              <option value="">اختر الموقع</option>
+              <option value="دار الاوبرا">دار الاوبرا</option>
+              <option value="المركز الثقافي">المركز الثقافي</option>
+              <option value="الهمك">الهمك</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <input type="date" id="filter-date" class="form-control">
+          </div>
+
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 text-end">
+            <button id="clear-filters" class="btn btn-outline-secondary">
+              مسح جميع الفلاتر
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قائمة الفعاليات -->
+    <section class="all-events">
+      <h2 class="section-title mb-4">كل الفعاليات</h2>
+      <div class="row g-4">
+
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 event-card border-0 shadow-sm" data-category="program" data-location="الهمك"
+            data-date="2026-09-17">
+            <img src="assets/images/imgs.programming.jpg" class="card-img-top" alt="1صورة الفعالية">
+            <div class="card-body d-flex flex-column gap-2">
+              <h5 class="card-title">دورة تعلم اساسيات البرمجة بطريقة احترافية باستخدام لغة ++C</h5>
+              <p class="card-text"><b> التاريخ:</b>من 17 سبتمبر 2026 حتى 1 اكتوبر 2027</p>
+              <p class="card-text"><b> المكان:</b> "الهمك-كلية الهندسة المعلوماتة</p>
+              <p class="card-text"><b>التنصيف:</b> تعليمي</p>
+              <p class="card-text">هذه الدورة لمن يرغب ان يتعلم البرمجة بتاسيس من الصفر
+                وتشمل المبتدئين في مجال البرمجة
+              </p>
+              <a href="event.html" class="btn btn-primary mt-auto align-self-start">التفاصيل</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 event-card border-0 shadow-sm" data-category="culture" data-location="المركز الثقافي"
+            data-date="2026-09-27">
+            <img src="assets/images/imges.2.jpg" class="card-img-top" alt="صورة فعالية-2">
+            <div class="card-body d-flex flex-column gap-2">
+              <h5 class="card-title">مسابقة ثقافية بجوائز مادية</h5>
+              <p class="card-text"><strong> التاريخ:</strong> 27 سبتمبر 2026</p>
+              <p class="card-text"><strong> المكان:</strong> بالمركز الثقافي </p>
+              <p class="card-text"><b>التنصيف:</b> ثقافي</p>
+              <p class="card-text">مسابقات الاسئلة ثقافية تشمل اسئلة دينية ثقافية علمية الخ....
+                والفائز يحصل على جائزة مالية
+              </p>
+              <a href="event.html" class="btn btn-primary mt-auto align-self-start">التفاصيل</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 event-card border-0 shadow-sm" data-category="kids" data-location="دار الاوبرا"
+            data-date="2026-06-14">
+            <img src="assets/images/images.3.jpg" class="cc-pd-alt" alt="3صورة الفعالية">
+            <img src="assets/images/kids.png" alt="صورة للأطفال" class="cc cc-pd-alt">
+            <div class="card-body d-flex flex-column gap-2">
+              <h5 class="card-title">فعاليات للأطفال واليافعين في دار الاوبرا</h5>
+              <p class="card-text"><strong> التاريخ:</strong>14 حزيران 2026 </p>
+              <p class="card-text"> <strong>المكان:</strong> دمشق-دار الاوبرا</p>
+              <p class="card-text"><b>التنصيف:</b>ترفيهي -اطفال</p>
+              <p class="card-text">مسرحيات للاطفال واسئلة مسلية وممتعة </p>
+              <a href="event.html" class="btn btn-primary mt-auto align-self-start">التفاصيل</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 event-card border-0 shadow-sm" data-category="program" data-location="الهمك"
+            data-date="2026-08-11">
+            <div class="card-body d-flex flex-column gap-2">
+              <img src="assets/images/prog.jpg" alt="صورة الفعالية 4" class="card-img-top">
+              <h5 class="card-title"> مسابقة برمجية للذين يمتلكون القدرة على حل المشاكل البرمجية ويكون لديهم منطق برمجي
+                قوي</h5>
+              <p class="card-text"> <strong>التاريخ:</strong>من 11 اغسطس 2026 وحتى 16 اغسطس 2026</p>
+              <p class="card-text"> <strong>المكان:</strong> الهمك</p>
+              <p class="card-text"><b>التنصيف:</b>برمجي</p>
+              <p class="card-text">تشمل جميع المستويات البرمجية من المستوى الاول وحتى المستوى الاخير وذلك باستخدام لغات
+                برمجية عدة </p>
+              <a href="event.html" class="btn btn-primary mt-auto align-self-start">التفاصيل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-primary text-white py-4 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2026 دليل فعاليات جامعة الافتراضية؛ جميع الحقوق محفوظة لجامعة الافتراضية السورية</p>
+      <p>للتواصل: almonajedmohammad56@gmail.com | +963 947206084</p>
+      <p>تابعنا عبر:
+        <a href="https://www.facebook.com" class="text-warning text-decoration-none">فيسبوك</a> |
+        <a href="https://www.instagram.com" class="text-warning text-decoration-none">إنستغرام</a> |
+        <a href="https://twitter.com" class="text-warning text-decoration-none">تويتر</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ملف JavaScript الخاص -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
