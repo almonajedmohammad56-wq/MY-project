@@ -1,636 +1,217 @@
+/* . لوحة الألوان الأساسية (أزرق ثلجي احترافي) */
 :root {
-    --main-color: #0E7A81;
-    --accent-color: #6CAFBF;
-    --light-color: #C7E0E5;
-    --bg-color: #F9F6F2;
-    --text-color: #0E7A81;
-    --white: #FFFFFF;
-    --dark-bg: #1a1a2e;
-    --dark-card: #2d2d2d;
-    --dark-text: #e0e0e0;
-    --blue-ice: #aee2ff;
-    --blue-deep: #4a90e2;
+  --main-color: #A5D1E1;       /* أزرق ثلجي */
+  --accent-color: #4A90E2;     /* أزرق سماوي للتباين */
+  --bg-light: #1a81e848;         /* خلفية فاتحة هادئة */
+  --text-primary: #1A374D;     /* لون النص الأساسي */
+  --text-muted: #406882;       /* لون نص فرعي */
+  --white: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --nav-gradient: linear-gradient(135deg, #08347b 0%, #71bcee 100%);
+  --hover-shadow: 0 15px 35px rgba(10, 112, 228, 0.2);
 }
 
-/* 2. الإعدادات الأساسية */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* . إعدادات الوضع الليلي (Dark Mode) لضمان انسجام النصوص */
+body.dark-theme {
+  --bg-light: #0F172A;         /* كحلي ليلي عميق */
+  --main-color: #1E293B;       /* أزرق داكن للأسطح */
+  --accent-color: #38BDF8;     /* أزرق مشع */
+  --text-primary: #F1F5F9;     /* نص أبيض نقي */
+  --text-muted: #94A3B8;       /* نص رمادي فاتح */
+  --white: #1E293B;            /* لون البطاقات والجداول */
+  --card-bg: #1E293B;
+  --nav-gradient: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  --hover-shadow: 0 15px 40px rgba(56, 189, 248, 0.3);
 }
 
+/* . التنسيقات الأساسية للجسم */
 body {
-    background: linear-gradient(180deg, var(--bg-color) 0%, var(--light-color) 100%);
-    color: var(--text-color);
-    font-family: 'Cairo', 'Tajawal', sans-serif;
-    direction: rtl;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  background: var(--bg-light) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  margin: 0;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
 }
 
-/* اتجاه الصفحة حسب اللغة */
-body.rtl {
-    direction: rtl;
-    text-align: right;
-}
-
-body.ltr {
-    direction: ltr;
-    text-align: left;
-}
-
-/* تأثير حركة الخلفية */
+/* حركة التموج بالخلفية */
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/white-wave.png');
-    opacity: 0.05;
-    z-index: -1;
-    animation: waves 20s linear infinite;
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/white-wave.png');
+  opacity: 0.05;
+  z-index: -1;
+  animation: waves 20s linear infinite;
 }
 
 @keyframes waves {
-    from { background-position: 0 0; }
-    to { background-position: 1000px 0; }
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
 }
 
-/* ===== الشعار الدائري في الزاوية اليمنى ===== */
-.logo-circle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    cursor: pointer;
-}
-
-.circle-logo {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--blue-ice), var(--blue-deep));
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
-    transition: all 0.3s ease;
-    border: 3px solid white;
-}
-
-.circle-logo:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.6);
-}
-
-.logo-text {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    font-family: 'Cairo', sans-serif;
-}
-
-.logo-subtitle {
-    font-size: 8px;
-    color: white;
-    text-align: center;
-    margin-top: 2px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-/* 3. شريط التنقل */
+/*  شريط التنقل واللوغ) */
 .navbar {
-    background: linear-gradient(90deg, var(--main-color), #0a5960);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    transition: all 0.4s ease;
-    padding: 12px 0;
+  background: var(--nav-gradient) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  border: none !important;
 }
 
-.navbar:hover {
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+.navbar .container {
+  display: flex;
+  flex-direction: row-reverse; /* اللوغو يمين */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--white) !important;
-    font-weight: 700;
-    font-size: 22px;
-    transition: all 0.3s ease;
-}
-
-.navbar-brand:hover {
-    transform: scale(1.02);
-    color: var(--light-color) !important;
+  display: flex !important;
+  align-items: center;
+  font-weight: 700;
+  color: var(--text-primary) !important;
+  text-decoration: none;
 }
 
 .navbar-brand img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  border: 2px solid var(--white);
+  margin-left: 12px;
+  transition: transform 0.3s ease;
 }
 
-.navbar-nav .nav-link {
-    color: var(--white) !important;
-    font-weight: 500;
-    position: relative;
-    transition: all 0.3s ease;
-    margin: 0 5px;
+.navbar-brand:hover img {
+  transform: rotate(10deg) scale(1.1);
 }
 
-.navbar-nav .nav-link:hover {
-    color: var(--light-color) !important;
-    transform: translateY(-2px);
+/* . العناوين وتنسيق النصوص العام */
+h1, h2, h3, h4, h5, .h1, .h2 {
+  text-align: center !important;
+  color: var(--accent-color) !important;
+  font-weight: 700;
+  margin: 25px 0;
 }
 
-.navbar-nav .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0%;
-    height: 2px;
-    background: var(--light-color);
-    transition: width 0.3s ease;
+p, span, label, td, th {
+  color: inherit; 
 }
 
-.navbar-nav .nav-link:hover::after {
-    width: 100%;
+/* . الجداول (توسيط كامل) */
+.table-responsive {
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* إخفاء شريط التمرير */
+  padding: 20px;
 }
 
-/* أزرار اللغة */
-.lang-switch img {
-    cursor: pointer;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.lang-switch img:hover {
-    transform: scale(1.15);
-    border-color: var(--light-color);
-    box-shadow: 0 0 10px rgba(199, 224, 229, 0.7);
-}
-
-/* 4. العناوين */
-h1, h2, h3, h4, h5 {
-    color: var(--main-color);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.section-title {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(135deg, var(--main-color), var(--accent-color));
-    border-radius: 3px;
-}
-
-/* 5. البطاقات */
-.card, .event-card, .team-card, .about-item {
-    background: var(--white);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.4s ease;
-    overflow: hidden;
-}
-
-.card:hover, .event-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(14,122,129,0.15);
-}
-
-.card-title {
-    color: var(--main-color);
-    font-weight: 700;
-}
-
-.card-text {
-    color: #3a7076;
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-/* 6. الأزرار */
-.btn-primary {
-    background: linear-gradient(135deg, var(--main-color), var(--accent-color));
-    border: none;
-    color: var(--white);
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 10px 24px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(135deg, var(--accent-color), var(--main-color));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(14,122,129,0.4);
-}
-
-.btn-outline-primary {
-    border: 2px solid var(--main-color);
-    border-radius: 8px;
-    color: var(--main-color);
-    background: transparent;
-    padding: 8px 20px;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-primary:hover {
-    background: var(--main-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* 7. الصور */
-img {
-    border-radius: 10px;
-    transition: all 0.4s ease;
-}
-
-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* 8. الجدول */
 .custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--white);
-    border-radius: 15px;
-    overflow: hidden;
+  width: 95%;
+  max-width: 900px;
+  background: var(--white) !important;
+  color: var(--text-primary) !important;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-collapse: collapse;
 }
 
 .custom-table thead th {
-    background: linear-gradient(135deg, var(--main-color), var(--accent-color));
-    color: white;
-    padding: 12px;
-    text-align: center;
+  background: var(--nav-gradient) !important;
+  color: var(--nav-gradient) !important;
+  padding: 18px;
+  border: none;
+
 }
 
 .custom-table tbody td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+
 }
 
-.custom-table tbody tr:hover td {
-    background-color: var(--light-color);
+/* . البطاقات وتأثير بروز الصور */
+.card {
+  background: var(--white) !important;
+  color: var(--text-primary) !important;
+  border: none !important;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  height: 100%;
 }
 
-/* 9. الفلاتر */
-.filter {
-    background: var(--white);
-    padding: 20px;
-    border-radius: 15px;
-    margin: 20px 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12) !important;
 }
 
-.form-control, .form-select {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    transition: all 0.3s ease;
+/* تأثير بروز الصور */
+.card-img-top, .gallery img, img {
+  border-radius: 15px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
-.form-control:focus, .form-select:focus {
-    border-color: var(--main-color);
-    box-shadow: 0 0 0 3px rgba(14,122,129,0.2);
-    outline: none;
+img:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: var(--hover-shadow) !important;
 }
 
-/* 10. السلايدر */
-.carousel {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.card-text {
+  color: var(--text-muted) !important;
 }
 
-.carousel-item img {
-    height: 400px;
-    object-fit: cover;
-}
-
-.carousel-caption {
-    background: rgba(0,0,0,0.5);
-    border-radius: 10px;
-    padding: 15px;
-    backdrop-filter: blur(5px);
-}
-
-.carousel-indicators [data-bs-target] {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.carousel-indicators .active {
-    transform: scale(1.3);
-}
-
-/* 11. معرض الصور */
-.gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.gallery img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(14,122,129,0.3);
-}
-
-/* 12. أزرار التصنيفات */
-.span, .category-btn {
-    background: var(--white);
-    color: var(--main-color);
-    padding: 8px 25px;
-    border: 2px solid var(--light-color);
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.span:hover, .category-btn:hover {
-    background: linear-gradient(135deg, var(--main-color), var(--accent-color));
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* 13. فريق العمل */
-.team-card {
-    text-align: center;
-    padding: 15px;
-}
-
-.team-card img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid var(--light-color);
-    transition: all 0.3s ease;
-}
-
-.team-card img:hover {
-    transform: scale(1.1) rotate(3deg);
-    border-color: var(--main-color);
-}
-
-/* 14. الفوتر */
-footer {
-    background: linear-gradient(90deg, var(--main-color), #0a5960);
-    color: var(--white);
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 60px;
-}
-
-footer a {
-    color: var(--light-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-/* 15. الوضع الليلي */
-body.dark-theme {
-    background: var(--dark-bg) !important;
-    color: var(--dark-text) !important;
-}
-
-body.dark-theme .card,
-body.dark-theme .event-card,
-body.dark-theme .filter,
-body.dark-theme .custom-table,
-body.dark-theme .team-card,
-body.dark-theme .about-item {
-    background: var(--dark-card) !important;
-    color: var(--dark-text) !important;
-}
-
-body.dark-theme .card-title,
-body.dark-theme h1, 
-body.dark-theme h2, 
-body.dark-theme h3 {
-    color: var(--accent-color) !important;
-}
-
-body.dark-theme .custom-table thead th {
-    background: linear-gradient(135deg, #0a5960, var(--main-color)) !important;
-}
-
-body.dark-theme .custom-table tbody td {
-    color: var(--dark-text) !important;
-    border-color: #444 !important;
-}
-
-body.dark-theme .span {
-    background: var(--dark-card);
-    color: var(--accent-color);
-    border-color: var(--main-color);
-}
-
-body.dark-theme .form-control,
-body.dark-theme .form-select {
-    background: #3a3a3a;
-    color: white;
-    border-color: #555;
-}
-
-body.dark-theme .circle-logo {
-    background: linear-gradient(135deg, #2c5a8c, #1a3a5c);
-}
-
-/* 16. تأثير التحميل */
-.fade-auto {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.fade-auto.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card, .event-card {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* 17. شريط التمرير */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--light-color);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--main-color);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-color);
-}
-
-/* 18. زر الوضع الليلي */
+/* . زر الوضع الليلي (على اليسار) */
 #darkModeToggle {
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: rgba(255,255,255,0.2) !important;
+  border: none !important;
+  width: 45px;
+  height: 45px;
+  border-radius: 50% !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--text-primary) !important;
+  transition: 0.3s ease;
 }
 
 #darkModeToggle:hover {
-    transform: scale(1.1);
+  background: rgba(255,255,255,0.4) !important;
+  transform: rotate(15deg);
 }
 
-/* 19. استجابة للموبايل */
-@media (max-width: 768px) {
-    .logo-circle {
-        top: 10px;
-        right: 10px;
-    }
-    
-    .circle-logo {
-        width: 55px;
-        height: 55px;
-    }
-    
-    .logo-text {
-        font-size: 22px;
-    }
-    
-    .logo-subtitle {
-        font-size: 6px;
-    }
-    
-    .navbar-brand {
-        font-size: 16px;
-    }
-    
-    .span {
-        padding: 5px 15px;
-        font-size: 12px;
-    }
-    
-    .carousel-item img {
-        height: 250px;
-    }
-    
-    .team-card img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .gallery img {
-        width: 150px;
-        height: 120px;
-    }
+/* . التذييل (Footer) */
+footer {
+  background: var(--nav-gradient) !important;
+  color: var(--text-primary) !important;
+  text-align: center;
+  padding: 35px 0;
+  margin-top: 60px;
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-/* 20. للشاشات الكبيرة جداً */
-@media (min-width: 1400px) {
-    .circle-logo {
-        width: 85px;
-        height: 85px;
-    }
-    
-    .logo-text {
-        font-size: 34px;
-    }
-    
-    .logo-subtitle {
-        font-size: 9px;
-    }
+footer a {
+  color: var(--accent-color) !important;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-/* 21. قسم البطل */
-.hero-section {
-    padding: 80px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, var(--light-color) 0%, white 100%);
-    border-bottom: 3px solid var(--main-color);
-}
 
-.hero-section h2 {
-    font-size: 2rem;
-    color: var(--main-color);
+.bg-white, .rounded.shadow-sm {
+  background-color: var(--white) !important;
+  color: var(--text-primary) !important;
+  border: none !important;
 }
-
-/* 22. تحسين الطباعة */
-@media print {
-    body.dark-theme {
-        background: white !important;
-        color: black !important;
-    }
-    
-    .btn,
-    .lang-switch,
-    .carousel-control-prev,
-    .carousel-control-next,
-    .logo-circle {
-        display: none !important;
-    }
+.shadow-sm {/*  البطاقات وتأثير بروز الصور */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+}
+.shadow-sm:hover {/*  البطاقات وتأثير بروز الصور عند التمرير */
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12) !important;
 }
